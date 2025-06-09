@@ -14,3 +14,9 @@ config/name="Risky Reagent Reaction"
 run/main_scene="uid://b1erahn3x1b14"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/resizable=false
