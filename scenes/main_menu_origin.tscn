@@ -1,6 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://cn6dhd3onsdyo"]
+[gd_scene load_steps=8 format=3 uid="uid://cn6dhd3onsdyo"]
 
 [ext_resource type="Script" uid="uid://pbxine6c1oq7" path="res://scenes/on_loaded.gd" id="1_4oj0g"]
+[ext_resource type="Texture2D" uid="uid://bws8u73i6ov2w" path="res://assets/logo.png" id="2_plefl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_plefl"]
+font_size = 75
+font_color = Color(0.670588, 0, 0, 1)
+shadow_size = 13
+shadow_color = Color(0, 0, 0, 0.333333)
+shadow_offset = Vector2(2, 2)
 
 [sub_resource type="Animation" id="Animation_pqpuc"]
 length = 0.001
@@ -69,6 +77,62 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color(0, 0.741176, 0.870588, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 504.0
+offset_top = 16.0
+offset_right = -511.0
+offset_bottom = -439.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_plefl")
+expand_mode = 1
+
+[node name="RRRLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 168.0
+offset_top = 288.0
+offset_right = -163.0
+offset_bottom = -329.0
+text = "RISKY REAGENT REACTION"
+label_settings = SubResource("LabelSettings_plefl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 488.0
+offset_top = 408.0
+offset_right = -488.0
+offset_bottom = -216.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Start Game"
+text_overrun_behavior = 1
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 488.0
+offset_top = 536.0
+offset_right = -488.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Quit"
+text_overrun_behavior = 1
 
 [node name="Transition" type="ColorRect" parent="."]
 modulate = Color(0, 0, 0, 1)
