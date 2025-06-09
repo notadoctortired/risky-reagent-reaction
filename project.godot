@@ -11,5 +11,6 @@ config_version=5
 [application]
 
 config/name="Risky Reagent Reaction"
+run/main_scene="uid://b1erahn3x1b14"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
