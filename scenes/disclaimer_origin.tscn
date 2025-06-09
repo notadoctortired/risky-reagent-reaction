@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b1erahn3x1b14"]
 
 [ext_resource type="Texture2D" uid="uid://d0ac26qsvnaeq" path="res://assets/Disclaimer.png" id="1_xe2m2"]
-[ext_resource type="Script" uid="uid://wuu7fqrrwam" path="res://scripts/cont_button.gd" id="2_uyd5x"]
+[ext_resource type="Script" uid="uid://dtmofqgs2tc3d" path="res://scripts/cont_button.gd" id="2_xe2m2"]
 
 [sub_resource type="Animation" id="Animation_pqpuc"]
 length = 0.001
@@ -42,7 +42,7 @@ tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(-0.0333333, 0.266667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
@@ -85,7 +85,7 @@ offset_bottom = -77.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Continue"
-script = ExtResource("2_uyd5x")
+script = ExtResource("2_xe2m2")
 
 [node name="Timer" type="Timer" parent="ContButton"]
 
