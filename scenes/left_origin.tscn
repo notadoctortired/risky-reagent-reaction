@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://csw0vt14lu7tx"]
+[gd_scene load_steps=8 format=3 uid="uid://csw0vt14lu7tx"]
 
 [ext_resource type="Script" uid="uid://pbxine6c1oq7" path="res://scripts/global/on_loaded.gd" id="1_8axnt"]
+[ext_resource type="Script" uid="uid://deduk7ft5bq27" path="res://scripts/buttons/movement/to_centre.gd" id="2_w73em"]
 
 [sub_resource type="Animation" id="Animation_pqpuc"]
 length = 0.001
@@ -54,6 +55,8 @@ _data = {
 &"fade in": SubResource("Animation_xe2m2")
 }
 
+[sub_resource type="Theme" id="Theme_u0qo3"]
+
 [node name="left_origin" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -79,3 +82,17 @@ color = Color(0, 0, 0, 1)
 libraries = {
 &"Global": SubResource("AnimationLibrary_xyqw4")
 }
+
+[node name="Right" type="Button" parent="."]
+offset_left = 1220.0
+offset_top = 320.0
+offset_right = 1280.0
+offset_bottom = 464.0
+theme = SubResource("Theme_u0qo3")
+theme_override_constants/h_separation = 0
+theme_override_constants/align_to_largest_stylebox = 0
+theme_override_font_sizes/font_size = 60
+text = "→"
+script = ExtResource("2_w73em")
+
+[node name="Timer" type="Timer" parent="Right"]

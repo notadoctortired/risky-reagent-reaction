@@ -11,7 +11,6 @@ func _ready():
 func _button_pressed():
 	anim_plr.play("Global/fade")
 	$Timer.start()
-	
 
 func _timeout():
 	get_tree().change_scene_to_file("res://scenes/front_origin.tscn")

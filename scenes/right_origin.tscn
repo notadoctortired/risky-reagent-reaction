@@ -1,6 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bd51dbghfmtim"]
+[gd_scene load_steps=8 format=3 uid="uid://bd51dbghfmtim"]
 
 [ext_resource type="Script" uid="uid://pbxine6c1oq7" path="res://scripts/global/on_loaded.gd" id="1_pxbf0"]
+[ext_resource type="Script" uid="uid://deduk7ft5bq27" path="res://scripts/buttons/movement/to_centre.gd" id="2_rssfw"]
+
+[sub_resource type="Theme" id="Theme_4m8i6"]
 
 [sub_resource type="Animation" id="Animation_pqpuc"]
 length = 0.001
@@ -62,6 +65,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pxbf0")
+
+[node name="Left" type="Button" parent="."]
+offset_top = 320.0
+offset_right = 60.0
+offset_bottom = 464.0
+theme = SubResource("Theme_4m8i6")
+theme_override_constants/h_separation = 0
+theme_override_constants/align_to_largest_stylebox = 0
+theme_override_font_sizes/font_size = 60
+text = "←"
+script = ExtResource("2_rssfw")
+
+[node name="Timer" type="Timer" parent="Left"]
 
 [node name="Transition" type="ColorRect" parent="."]
 visible = false

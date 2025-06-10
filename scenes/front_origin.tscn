@@ -1,18 +1,60 @@
-[gd_scene load_steps=14 format=3 uid="uid://b1vnj8nw1wioe"]
+[gd_scene load_steps=21 format=3 uid="uid://b1vnj8nw1wioe"]
 
 [ext_resource type="Script" uid="uid://pbxine6c1oq7" path="res://scripts/global/on_loaded.gd" id="1_7m4u3"]
 [ext_resource type="Texture2D" uid="uid://diy2222xrgopv" path="res://assets/scene_bgs/lab_front.png" id="2_untqw"]
 [ext_resource type="Texture2D" uid="uid://dl8aiv715a12f" path="res://assets/items/green_flask.png" id="3_35kap"]
 [ext_resource type="Texture2D" uid="uid://cigkr2sylv22q" path="res://assets/items/purple_flask.png" id="4_nwny3"]
+[ext_resource type="Script" uid="uid://byhc30ikku4h8" path="res://scripts/reactions/clicked.gd" id="4_voppb"]
 [ext_resource type="Texture2D" uid="uid://d02kfxyv7mpsh" path="res://assets/items/red_flask.png" id="5_pek5g"]
 [ext_resource type="Texture2D" uid="uid://ctwlte7ribp8a" path="res://assets/items/blue_flask.png" id="6_voppb"]
 [ext_resource type="Script" uid="uid://dpbl8rbsownb8" path="res://scripts/buttons/movement/to_left.gd" id="7_nwny3"]
+[ext_resource type="Script" uid="uid://1eunhr1fvvr7" path="res://scripts/buttons/movement/to_right.gd" id="7_pek5g"]
+[ext_resource type="Texture2D" uid="uid://c44gxyrfbhpfc" path="res://assets/misc/explosion.png" id="10_cxubv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pek5g"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_cxubv"]
 font_size = 22
 font_color = Color(0.309804, 0, 0, 1)
 
 [sub_resource type="Theme" id="Theme_35kap"]
+
+[sub_resource type="Animation" id="Animation_cxubv"]
+resource_name = "explosion"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(8, 8), Vector2(2000, 2000)]
+}
+
+[sub_resource type="Animation" id="Animation_gy8vr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xidyk"]
+_data = {
+&"RESET": SubResource("Animation_gy8vr"),
+&"explosion": SubResource("Animation_cxubv")
+}
 
 [sub_resource type="Animation" id="Animation_pqpuc"]
 length = 0.001
@@ -73,6 +115,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_7m4u3")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -89,20 +132,48 @@ position = Vector2(960, 400)
 scale = Vector2(0.41, 0.448)
 texture = ExtResource("3_35kap")
 
+[node name="Clickable" type="Area2D" parent="GreenFlask"]
+scale = Vector2(9.73466, 12.4329)
+script = ExtResource("4_voppb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GreenFlask/Clickable"]
+shape = SubResource("RectangleShape2D_pek5g")
+
 [node name="PurpleFlask" type="Sprite2D" parent="."]
 position = Vector2(648, 392)
 scale = Vector2(0.456, 0.456)
 texture = ExtResource("4_nwny3")
+
+[node name="Clickable" type="Area2D" parent="PurpleFlask"]
+scale = Vector2(9.73466, 12.4329)
+script = ExtResource("4_voppb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PurpleFlask/Clickable"]
+shape = SubResource("RectangleShape2D_pek5g")
 
 [node name="RedFlask" type="Sprite2D" parent="."]
 position = Vector2(360, 392)
 scale = Vector2(0.450027, 0.449)
 texture = ExtResource("5_pek5g")
 
+[node name="Clickable" type="Area2D" parent="RedFlask"]
+scale = Vector2(9.73466, 12.4329)
+script = ExtResource("4_voppb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RedFlask/Clickable"]
+shape = SubResource("RectangleShape2D_pek5g")
+
 [node name="BlueFlask" type="Sprite2D" parent="."]
 position = Vector2(800, 472)
 scale = Vector2(0.46, 0.46)
 texture = ExtResource("6_voppb")
+
+[node name="Clickable" type="Area2D" parent="BlueFlask"]
+scale = Vector2(9.73466, 12.4329)
+script = ExtResource("4_voppb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlueFlask/Clickable"]
+shape = SubResource("RectangleShape2D_pek5g")
 
 [node name="Selection_Label" type="Label" parent="."]
 layout_mode = 1
@@ -117,7 +188,7 @@ label_settings = SubResource("LabelSettings_cxubv")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Right" type="Button" parent="."]
+[node name="Left" type="Button" parent="."]
 offset_top = 320.0
 offset_right = 60.0
 offset_bottom = 464.0
@@ -126,10 +197,11 @@ theme_override_constants/h_separation = 0
 theme_override_constants/align_to_largest_stylebox = 0
 theme_override_font_sizes/font_size = 60
 text = "←"
+script = ExtResource("7_nwny3")
 
-[node name="Timer" type="Timer" parent="Right"]
+[node name="Timer" type="Timer" parent="Left"]
 
-[node name="Left" type="Button" parent="."]
+[node name="Right" type="Button" parent="."]
 layout_mode = 0
 offset_left = 1220.0
 offset_top = 320.0
@@ -140,9 +212,31 @@ theme_override_constants/h_separation = 0
 theme_override_constants/align_to_largest_stylebox = 0
 theme_override_font_sizes/font_size = 60
 text = "→"
-script = ExtResource("7_nwny3")
+script = ExtResource("7_pek5g")
 
-[node name="Timer" type="Timer" parent="Left"]
+[node name="Timer" type="Timer" parent="Right"]
+
+[node name="Explosion" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -368.0
+offset_right = -1528.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_cxubv")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Explosion"]
+libraries = {
+&"": SubResource("AnimationLibrary_xidyk")
+}
+
+[node name="Timer" type="Timer" parent="Explosion"]
 
 [node name="Transition" type="ColorRect" parent="."]
 visible = false
