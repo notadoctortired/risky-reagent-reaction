@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bws8u73i6ov2w"
-path="res://.godot/imported/logo.png-e2220799298e3631eb0e245316e0501a.ctex"
+uid="uid://dl8aiv715a12f"
+path="res://.godot/imported/green_flask.png-59d9a8aa3afd054090a2b439fcf6373d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/logo.png"
-dest_files=["res://.godot/imported/logo.png-e2220799298e3631eb0e245316e0501a.ctex"]
+source_file="res://assets/items/green_flask.png"
+dest_files=["res://.godot/imported/green_flask.png-59d9a8aa3afd054090a2b439fcf6373d.ctex"]
 
 [params]
 

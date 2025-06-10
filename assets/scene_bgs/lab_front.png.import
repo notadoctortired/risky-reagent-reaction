@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0ac26qsvnaeq"
-path="res://.godot/imported/Disclaimer.png-8485fa085723d2d0ed1577a9c1eb073a.ctex"
+uid="uid://diy2222xrgopv"
+path="res://.godot/imported/lab_front.png-7dd5574e08b3d5e37d04527a5eabacd4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Disclaimer.png"
-dest_files=["res://.godot/imported/Disclaimer.png-8485fa085723d2d0ed1577a9c1eb073a.ctex"]
+source_file="res://assets/scene_bgs/lab_front.png"
+dest_files=["res://.godot/imported/lab_front.png-7dd5574e08b3d5e37d04527a5eabacd4.ctex"]
 
 [params]
 
