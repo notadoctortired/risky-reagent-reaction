@@ -1,9 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://bd51dbghfmtim"]
+[gd_scene load_steps=12 format=3 uid="uid://bd51dbghfmtim"]
 
 [ext_resource type="Script" uid="uid://pbxine6c1oq7" path="res://scripts/global/on_loaded.gd" id="1_pxbf0"]
+[ext_resource type="Texture2D" uid="uid://8ahn45oportp" path="res://assets/scene_bgs/lab_right.png" id="2_4m8i6"]
 [ext_resource type="Script" uid="uid://deduk7ft5bq27" path="res://scripts/buttons/movement/to_centre.gd" id="2_rssfw"]
+[ext_resource type="Texture2D" uid="uid://bk15seukj24dg" path="res://scripts/reactions/buuny.png" id="4_yd8gm"]
+[ext_resource type="Script" uid="uid://byhc30ikku4h8" path="res://scripts/reactions/clicked.gd" id="5_dwvmj"]
 
 [sub_resource type="Theme" id="Theme_4m8i6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rno4t"]
 
 [sub_resource type="Animation" id="Animation_pqpuc"]
 length = 0.001
@@ -64,7 +69,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_pxbf0")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("2_4m8i6")
 
 [node name="Left" type="Button" parent="."]
 offset_top = 320.0
@@ -78,6 +91,20 @@ text = "←"
 script = ExtResource("2_rssfw")
 
 [node name="Timer" type="Timer" parent="Left"]
+
+[node name="Bunny" type="Sprite2D" parent="."]
+position = Vector2(377.322, 390.75)
+scale = Vector2(0.444757, 0.444757)
+texture = ExtResource("4_yd8gm")
+
+[node name="Clickable" type="Area2D" parent="Bunny"]
+position = Vector2(-164.859, 92.7474)
+scale = Vector2(9.73466, 12.4329)
+script = ExtResource("5_dwvmj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bunny/Clickable"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_rno4t")
 
 [node name="Transition" type="ColorRect" parent="."]
 visible = false

@@ -127,52 +127,52 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_untqw")
 
-[node name="GreenFlask" type="Sprite2D" parent="."]
+[node name="Green Flask" type="Sprite2D" parent="."]
 position = Vector2(960, 400)
 scale = Vector2(0.41, 0.448)
 texture = ExtResource("3_35kap")
 
-[node name="Clickable" type="Area2D" parent="GreenFlask"]
+[node name="Clickable" type="Area2D" parent="Green Flask"]
 scale = Vector2(9.73466, 12.4329)
 script = ExtResource("4_voppb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GreenFlask/Clickable"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green Flask/Clickable"]
 shape = SubResource("RectangleShape2D_pek5g")
 
-[node name="PurpleFlask" type="Sprite2D" parent="."]
+[node name="Purple Flask" type="Sprite2D" parent="."]
 position = Vector2(648, 392)
 scale = Vector2(0.456, 0.456)
 texture = ExtResource("4_nwny3")
 
-[node name="Clickable" type="Area2D" parent="PurpleFlask"]
+[node name="Clickable" type="Area2D" parent="Purple Flask"]
 scale = Vector2(9.73466, 12.4329)
 script = ExtResource("4_voppb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PurpleFlask/Clickable"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Purple Flask/Clickable"]
 shape = SubResource("RectangleShape2D_pek5g")
 
-[node name="RedFlask" type="Sprite2D" parent="."]
+[node name="Red Flask" type="Sprite2D" parent="."]
 position = Vector2(360, 392)
 scale = Vector2(0.450027, 0.449)
 texture = ExtResource("5_pek5g")
 
-[node name="Clickable" type="Area2D" parent="RedFlask"]
+[node name="Clickable" type="Area2D" parent="Red Flask"]
 scale = Vector2(9.73466, 12.4329)
 script = ExtResource("4_voppb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RedFlask/Clickable"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Red Flask/Clickable"]
 shape = SubResource("RectangleShape2D_pek5g")
 
-[node name="BlueFlask" type="Sprite2D" parent="."]
+[node name="Blue Flask" type="Sprite2D" parent="."]
 position = Vector2(800, 472)
 scale = Vector2(0.46, 0.46)
 texture = ExtResource("6_voppb")
 
-[node name="Clickable" type="Area2D" parent="BlueFlask"]
+[node name="Clickable" type="Area2D" parent="Blue Flask"]
 scale = Vector2(9.73466, 12.4329)
 script = ExtResource("4_voppb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BlueFlask/Clickable"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blue Flask/Clickable"]
 shape = SubResource("RectangleShape2D_pek5g")
 
 [node name="Selection_Label" type="Label" parent="."]
@@ -254,3 +254,12 @@ color = Color(0, 0, 0, 1)
 libraries = {
 &"Global": SubResource("AnimationLibrary_xyqw4")
 }
+
+[node name="Purple_Filter" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0.631373, 0.152941, 1, 0.470588)

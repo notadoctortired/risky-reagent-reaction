@@ -1,7 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://csw0vt14lu7tx"]
+[gd_scene load_steps=11 format=3 uid="uid://csw0vt14lu7tx"]
 
 [ext_resource type="Script" uid="uid://pbxine6c1oq7" path="res://scripts/global/on_loaded.gd" id="1_8axnt"]
+[ext_resource type="Texture2D" uid="uid://uof3mqg121aj" path="res://assets/scene_bgs/lab_left.png" id="2_u0qo3"]
 [ext_resource type="Script" uid="uid://deduk7ft5bq27" path="res://scripts/buttons/movement/to_centre.gd" id="2_w73em"]
+[ext_resource type="Script" uid="uid://d0r2gbfu3is6q" path="res://scripts/clock/clock.gd" id="4_mhjdu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mhjdu"]
+font_size = 50
+font_color = Color(0.235294, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_u0qo3"]
 
 [sub_resource type="Animation" id="Animation_pqpuc"]
 length = 0.001
@@ -55,8 +63,6 @@ _data = {
 &"fade in": SubResource("Animation_xe2m2")
 }
 
-[sub_resource type="Theme" id="Theme_u0qo3"]
-
 [node name="left_origin" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -64,7 +70,45 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_8axnt")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_u0qo3")
+
+[node name="clock" type="Label" parent="."]
+layout_mode = 0
+offset_left = 992.0
+offset_top = 48.0
+offset_right = 1176.0
+offset_bottom = 117.0
+theme_override_font_sizes/font_size = 60
+text = "5:00"
+label_settings = SubResource("LabelSettings_mhjdu")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_mhjdu")
+
+[node name="Timer" type="Timer" parent="clock"]
+one_shot = true
+
+[node name="Right" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1220.0
+offset_top = 320.0
+offset_right = 1280.0
+offset_bottom = 464.0
+theme = SubResource("Theme_u0qo3")
+theme_override_constants/h_separation = 0
+theme_override_constants/align_to_largest_stylebox = 0
+theme_override_font_sizes/font_size = 60
+text = "→"
+script = ExtResource("2_w73em")
+
+[node name="Timer" type="Timer" parent="Right"]
 
 [node name="Transition" type="ColorRect" parent="."]
 visible = false
@@ -82,17 +126,3 @@ color = Color(0, 0, 0, 1)
 libraries = {
 &"Global": SubResource("AnimationLibrary_xyqw4")
 }
-
-[node name="Right" type="Button" parent="."]
-offset_left = 1220.0
-offset_top = 320.0
-offset_right = 1280.0
-offset_bottom = 464.0
-theme = SubResource("Theme_u0qo3")
-theme_override_constants/h_separation = 0
-theme_override_constants/align_to_largest_stylebox = 0
-theme_override_font_sizes/font_size = 60
-text = "→"
-script = ExtResource("2_w73em")
-
-[node name="Timer" type="Timer" parent="Right"]
