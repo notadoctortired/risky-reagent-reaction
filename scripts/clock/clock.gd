@@ -1,8 +1,10 @@
 extends Label
 
 var ending = false
+var teacher = ""
 
 func _ready():
+	teacher = get_parent().get_node("Teacher")
 	$Timer.timeout.connect(_timeout)
 	var content = _load_from_file()
 	if content == "":
@@ -17,8 +19,13 @@ func _process(delta):
 	
 	
 func _timeout():
+	if ending == true:
+		get_tree().exit()
+	
 	ending = true
-	print("Nerd Ending")
+	teacher.visible = true
+	teacher.get_node("AnimationPlayer").play("Global/ladirt")
+	$Timer.start(5)
 	
 func _save_to_file(content):
 	var file = FileAccess.open("res://scripts/clock/time_left.txt", FileAccess.WRITE)

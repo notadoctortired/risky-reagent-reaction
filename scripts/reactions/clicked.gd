@@ -1,6 +1,7 @@
 extends Area2D
 
 var origin = ""
+var bunny_ending = false
 
 func _ready():
 	origin = get_parent().get_parent()
@@ -27,14 +28,20 @@ func _on_click():
 		origin.get_node("Purple_Filter").visible = true
 	
 	if content == "Red Flask" and get_parent().name == "Bunny":
-		print("Bunny!!!")
+		$Timer.start(1)
+		bunny_ending = true
+		origin.get_node("Transition/AnimationPlayer").play("Global/fade")
+		
 		
 	
 	if content != get_parent().name:
 		_save_to_file(get_parent().name)
 
 func _timeout():
-	get_tree().quit()
+	if bunny_ending == true:
+		get_tree().change_scene_to_file("res://scenes/bunny_ending_origin.tscn")
+	else:
+		get_tree().quit()
 	
 func _save_to_file(content):
 	var file = FileAccess.open("res://scripts/reactions/current_flask.txt", FileAccess.WRITE)

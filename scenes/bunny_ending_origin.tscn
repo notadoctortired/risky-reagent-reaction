@@ -1,14 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bd51dbghfmtim"]
+[gd_scene load_steps=7 format=3 uid="uid://da2y0hrubnvkx"]
 
-[ext_resource type="Script" uid="uid://pbxine6c1oq7" path="res://scripts/global/on_loaded.gd" id="1_pxbf0"]
-[ext_resource type="Texture2D" uid="uid://8ahn45oportp" path="res://assets/scene_bgs/lab_right.png" id="2_4m8i6"]
-[ext_resource type="Script" uid="uid://deduk7ft5bq27" path="res://scripts/buttons/movement/to_centre.gd" id="2_rssfw"]
-[ext_resource type="Texture2D" uid="uid://bk15seukj24dg" path="res://scripts/reactions/buuny.png" id="4_yd8gm"]
-[ext_resource type="Script" uid="uid://byhc30ikku4h8" path="res://scripts/reactions/clicked.gd" id="5_dwvmj"]
-
-[sub_resource type="Theme" id="Theme_4m8i6"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rno4t"]
+[ext_resource type="Texture2D" uid="uid://c4o5diojh2bpq" path="res://assets/scene_bgs/bunny_ending.png" id="1_pjlhy"]
+[ext_resource type="Script" uid="uid://pbxine6c1oq7" path="res://scripts/global/on_loaded.gd" id="1_vib5g"]
 
 [sub_resource type="Animation" id="Animation_pqpuc"]
 length = 0.001
@@ -62,53 +55,22 @@ _data = {
 &"fade in": SubResource("Animation_xe2m2")
 }
 
-[node name="right_origin" type="Control"]
+[node name="bunny_ending_origin" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("1_pxbf0")
+script = ExtResource("1_vib5g")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_4m8i6")
-
-[node name="Left" type="Button" parent="."]
-layout_mode = 0
-offset_top = 320.0
-offset_right = 60.0
-offset_bottom = 464.0
-theme = SubResource("Theme_4m8i6")
-theme_override_constants/h_separation = 0
-theme_override_constants/align_to_largest_stylebox = 0
-theme_override_font_sizes/font_size = 60
-text = "←"
-script = ExtResource("2_rssfw")
-
-[node name="Timer" type="Timer" parent="Left"]
-
-[node name="Bunny" type="Sprite2D" parent="."]
-position = Vector2(377.322, 390.75)
-scale = Vector2(0.444757, 0.444757)
-texture = ExtResource("4_yd8gm")
-
-[node name="Clickable" type="Area2D" parent="Bunny"]
-position = Vector2(-164.859, 92.7474)
-scale = Vector2(9.73466, 12.4329)
-script = ExtResource("5_dwvmj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bunny/Clickable"]
-shape = SubResource("RectangleShape2D_rno4t")
-
-[node name="Timer" type="Timer" parent="Bunny/Clickable"]
+texture = ExtResource("1_pjlhy")
+expand_mode = 1
 
 [node name="Transition" type="ColorRect" parent="."]
 visible = false
