@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b1vnj8nw1wioe"]
+[gd_scene load_steps=23 format=3 uid="uid://b1vnj8nw1wioe"]
 
 [ext_resource type="Script" uid="uid://pbxine6c1oq7" path="res://scripts/global/on_loaded.gd" id="1_7m4u3"]
 [ext_resource type="Texture2D" uid="uid://diy2222xrgopv" path="res://assets/scene_bgs/lab_front.png" id="2_untqw"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" uid="uid://dpbl8rbsownb8" path="res://scripts/buttons/movement/to_left.gd" id="7_nwny3"]
 [ext_resource type="Script" uid="uid://1eunhr1fvvr7" path="res://scripts/buttons/movement/to_right.gd" id="7_pek5g"]
 [ext_resource type="Texture2D" uid="uid://c44gxyrfbhpfc" path="res://assets/misc/explosion.png" id="10_cxubv"]
+[ext_resource type="AudioStream" uid="uid://cwes4qkqq6ati" path="res://assets/sfx/bird_noises.mp3" id="11_gy8vr"]
+[ext_resource type="AudioStream" uid="uid://bqhux2axeciag" path="res://assets/sfx/music/bg_front.mp3" id="11_xidyk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pek5g"]
 
@@ -255,6 +257,18 @@ color = Color(0, 0, 0, 1)
 libraries = {
 &"Global": SubResource("AnimationLibrary_xyqw4")
 }
+
+[node name="bg_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_xidyk")
+volume_db = 3.0
+autoplay = true
+parameters/looping = true
+
+[node name="bird" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_gy8vr")
+volume_db = -2.0
+autoplay = true
+parameters/looping = true
 
 [node name="Purple_Filter" type="ColorRect" parent="."]
 visible = false

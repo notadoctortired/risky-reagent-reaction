@@ -8,7 +8,7 @@ func _ready():
 	$Timer.timeout.connect(_timeout)
 	var content = _load_from_file()
 	if content == "":
-		$Timer.start(5)
+		$Timer.start(60)
 	elif content != "" and ending == false:
 		$Timer.start(int(content))
 

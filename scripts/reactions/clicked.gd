@@ -7,6 +7,8 @@ func _ready():
 	origin = get_parent().get_parent()
 	if origin.name == "front_origin":
 		origin.get_node("Explosion/Timer").timeout.connect(_timeout)
+	elif origin.name == "right_origin":
+		$Timer.timeout.connect(_timeout)
 
 func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int):
 	if event is InputEventMouseButton \

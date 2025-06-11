@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://csw0vt14lu7tx"]
+[gd_scene load_steps=16 format=3 uid="uid://csw0vt14lu7tx"]
 
 [ext_resource type="Script" uid="uid://pbxine6c1oq7" path="res://scripts/global/on_loaded.gd" id="1_8axnt"]
 [ext_resource type="Texture2D" uid="uid://uof3mqg121aj" path="res://assets/scene_bgs/lab_left.png" id="2_u0qo3"]
 [ext_resource type="Script" uid="uid://deduk7ft5bq27" path="res://scripts/buttons/movement/to_centre.gd" id="2_w73em"]
 [ext_resource type="Script" uid="uid://d0r2gbfu3is6q" path="res://scripts/clock/clock.gd" id="4_mhjdu"]
 [ext_resource type="Texture2D" uid="uid://cdvhwkl6rsd37" path="res://assets/misc/Niel laDirt Tyson.png" id="5_8pr8u"]
+[ext_resource type="AudioStream" uid="uid://ccdw1aqvbrsb4" path="res://assets/sfx/music/waiting.mp3" id="6_up5se"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mhjdu"]
 font_size = 50
@@ -165,3 +166,9 @@ color = Color(0, 0, 0, 0)
 libraries = {
 &"Global": SubResource("AnimationLibrary_xyqw4")
 }
+
+[node name="bg_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_up5se")
+volume_db = 3.0
+autoplay = true
+parameters/looping = true

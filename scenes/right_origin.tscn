@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bd51dbghfmtim"]
+[gd_scene load_steps=13 format=3 uid="uid://bd51dbghfmtim"]
 
 [ext_resource type="Script" uid="uid://pbxine6c1oq7" path="res://scripts/global/on_loaded.gd" id="1_pxbf0"]
 [ext_resource type="Texture2D" uid="uid://8ahn45oportp" path="res://assets/scene_bgs/lab_right.png" id="2_4m8i6"]
 [ext_resource type="Script" uid="uid://deduk7ft5bq27" path="res://scripts/buttons/movement/to_centre.gd" id="2_rssfw"]
 [ext_resource type="Texture2D" uid="uid://bk15seukj24dg" path="res://scripts/reactions/buuny.png" id="4_yd8gm"]
 [ext_resource type="Script" uid="uid://byhc30ikku4h8" path="res://scripts/reactions/clicked.gd" id="5_dwvmj"]
+[ext_resource type="AudioStream" uid="uid://dxsrqmtoonc7y" path="res://assets/sfx/music/dreadfulwhispers.mp3" id="6_rno4t"]
 
 [sub_resource type="Theme" id="Theme_4m8i6"]
 
@@ -126,3 +127,9 @@ color = Color(0, 0, 0, 1)
 libraries = {
 &"Global": SubResource("AnimationLibrary_xyqw4")
 }
+
+[node name="bg_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_rno4t")
+volume_db = 3.0
+autoplay = true
+parameters/looping = true
