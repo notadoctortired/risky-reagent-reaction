@@ -1,6 +1,7 @@
 extends Label
 
 var ending = false
+var ended = false
 var teacher = ""
 
 func _ready():
@@ -8,7 +9,7 @@ func _ready():
 	$Timer.timeout.connect(_timeout)
 	var content = _load_from_file()
 	if content == "":
-		$Timer.start(60)
+		$Timer.start(120)
 	elif content != "" and ending == false:
 		$Timer.start(int(content))
 
@@ -20,6 +21,8 @@ func _process(delta):
 	
 func _timeout():
 	if ending == true:
+		ended = true
+	if ended == true:
 		get_tree().exit()
 	
 	ending = true
